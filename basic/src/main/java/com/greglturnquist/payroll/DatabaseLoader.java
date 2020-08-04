@@ -19,22 +19,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
+
 /**
  * @author Greg Turnquist
  */
 // tag::code[]
 @Component // <1>
+@AllArgsConstructor
 public class DatabaseLoader implements CommandLineRunner { // <2>
 
+	@Autowired
 	private final EmployeeRepository repository;
 
-	@Autowired // <3>
-	public DatabaseLoader(EmployeeRepository repository) {
-		this.repository = repository;
-	}
+//	@Autowired // <3>
+//	public DatabaseLoader(EmployeeRepository repository) {
+//		this.repository = repository;
+//	}
 
 	@Override
-	public void run(String... strings) throws Exception { // <4>
+	public void run(final String... strings) throws Exception { // <4>
 		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer"));
 	}
 }
