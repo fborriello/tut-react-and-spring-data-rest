@@ -13,18 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.greglturnquist.payroll;
+package com.greglturnquist.payroll.controller;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author Greg Turnquist
  */
-@SpringBootApplication
-public class ReactAndSpringDataRestApplication {
+@Controller
+public class HomeController {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ReactAndSpringDataRestApplication.class, args);
+	@RequestMapping(value = "/")
+	public String index() {
+		return "index";
 	}
+
 }

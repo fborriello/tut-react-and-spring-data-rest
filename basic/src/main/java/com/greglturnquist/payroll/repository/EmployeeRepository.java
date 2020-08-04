@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.greglturnquist.payroll;
+package com.greglturnquist.payroll.repository;
 
 import org.springframework.data.repository.CrudRepository;
+
+import com.greglturnquist.payroll.entity.Employee;
 
 /**
  * @author Greg Turnquist
  */
-// tag::code[]
-public interface EmployeeRepository extends CrudRepository<Employee, Long> { // <1>
+public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
 }
-// end::code[]

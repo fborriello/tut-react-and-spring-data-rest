@@ -15,31 +15,32 @@
  */
 package com.greglturnquist.payroll;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import com.greglturnquist.payroll.entity.Employee;
+import com.greglturnquist.payroll.repository.EmployeeRepository;
 
 import lombok.AllArgsConstructor;
 
 /**
  * @author Greg Turnquist
  */
-// tag::code[]
-@Component // <1>
+@Component
 @AllArgsConstructor
-public class DatabaseLoader implements CommandLineRunner { // <2>
+public class DatabaseLoader implements CommandLineRunner {
 
 	@Autowired
 	private final EmployeeRepository repository;
 
-//	@Autowired // <3>
-//	public DatabaseLoader(EmployeeRepository repository) {
-//		this.repository = repository;
-//	}
-
 	@Override
-	public void run(final String... strings) throws Exception { // <4>
-		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer"));
+	public void run(final String[] args) {
+		List<Employee> employees =
+				List.of(new Employee("Donald", "Duck", "it's a duck"),
+				new Employee("Pippo", "Goofy", "it's a dog"));
+		this.repository.saveAll(employees);
 	}
 }
-// end::code[]
