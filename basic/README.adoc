@@ -2,6 +2,8 @@
 = Part 1 -- Basic Features
 :sourcedir: https://github.com/spring-guides/tut-react-and-spring-data-rest/tree/master
 
+ReactJava: https://reactjava.io/
+
 Welcome, Spring community.
 
 This section shows how to get a bare-bones Spring Data REST application up and running quickly. Then it shows how to build a simple UI on top of it by using Facebook's React.js toolset.
