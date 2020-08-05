@@ -10,29 +10,29 @@ import EmployeeList from './components/employeeList';
 // tag::app[]
 class App extends React.Component { // <1>
 
-	constructor(props) {
-		super(props);
-		this.state = {employees: []};
-	}
+    constructor(props) {
+        super(props);
+        this.state = {employees: []};
+    }
 
-	componentDidMount() { // <2>
-		client({method: 'GET', path: '/api/employees'}).done(response => {
-			this.setState({employees: response.entity._embedded.employees});
-		});
-	}
+    componentDidMount() { // <2>
+        client({method: 'GET', path: '/api/employees'}).then(response => {
+            this.setState({employees: response.entity._embedded.employees});
+        });
+    }
 
-	render() { // <3>
-		return (
-			<EmployeeList employees={this.state.employees}/>
-		)
-	}
+    render() { // <3>
+        return (
+            <EmployeeList employees={this.state.employees}/>
+        )
+    }
 }
 // end::app[]
 
 // tag::render[]
 const domContainer = document.querySelector('#react');
 ReactDOM.render(
-	<App />,
-	domContainer
+    <App/>,
+    domContainer
 )
 // end::render[]

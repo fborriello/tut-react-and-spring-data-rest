@@ -29,8 +29,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Employee {
-
-	private @Id @GeneratedValue Long id; // <2>
+	@Id
+	@GeneratedValue
+	private Long id; // <2>
 	private String firstName;
 	private String lastName;
 	private String description;
